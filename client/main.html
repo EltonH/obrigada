@@ -1,0 +1,219 @@
+<head>
+  <title>Obrigada!</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
+</head>
+
+<template name="login">
+  <div class="cyan bg-login">
+    <div id="login-page" class="row">
+      <div class="col s12 z-depth-4 card-panel">
+        <form class="login-form">
+          <div class="row margin">
+            <div class="input-field col s12 center">
+              <img src="images/logo.png" alt="" class="responsive-img valign profile-image-login">
+            </div>
+          </div>
+          <div class="row margin">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">person_pin</i>
+              <input type="text" name="username">
+              <label for="username" class="center-align">Nome de usuário</label>
+            </div>
+          </div>
+          <div class="row margin">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">lock_outline</i>
+              <input id="password" type="password">
+              <label for="password">Senha</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <p class="red-text text-darken-1 error-msg"></p>
+              <input type="submit" class="btn waves-effect waves-light col s12" value="Login">
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6 m6 l6">
+              <p class="margin medium-small"><a href="javascript:void(0)" class="button-register">Cadastre-se!</a></p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="register">
+  <div class="cyan bg-login">
+    <div id="register-page" class="row">
+      <div class="col s12 z-depth-4 card-panel">
+        <form class="register-form">
+          <div class="row">
+            <div class="input-field col s12 center">
+              <img src="images/logo.png" alt="" class="responsive-img valign profile-image-login">
+              <p class="center login-form-text">CADASTRO</p>
+            </div>
+          </div>
+          <div class="row margin">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">person_pin</i>
+              <input type="text" name="username">
+              <label for="username" class="center-align">Nome de usuário</label>
+            </div>
+          </div>
+          <div class="row margin">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">lock_outline</i>
+              <input id="password" type="password">
+              <label for="password">Senha</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <p class="red-text text-darken-1 error-msg"></p>
+              <input type="submit" class="btn waves-effect waves-light col s12" value="Cadastrar">
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6 m6 l6">
+              <p class="margin medium-small"><a href="javascript:void(0)" class="button-back-login">Voltar ao login</a></p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="ApplicationLayout">
+  
+    <aside>
+      {{> yield "sidebar"}}
+    </aside>
+  
+    <article>
+      {{> yield}}
+    </article>
+
+    <footer>
+      {{> yield "footer"}}
+    </footer>
+
+</template>
+
+<template name="home">
+  <div class="container center home-page">
+    <button class="waves-effect waves-light btn-large register-time"><i class="material-icons right">fingerprint</i>Registrar ponto</button>
+
+    <div>
+      <ul class="collection with-header">
+        <li class="collection-header"><h4>Horários registrados</h4></li>
+        {{#each registerTimeLists}}
+          {{> registerTimeList}}
+        {{else}}
+          <li class="collection-item">Nenhum horário registrado</li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</template>
+
+<template name="registerTimeList">
+  	<li class="collection-item">
+      <b>{{type}}</b><b>{{time}}</b><b>{{date}}</b>
+      <a href="#" class="delete-register secondary-content"><i class="material-icons">close</i></a>
+    </li>
+</template>
+
+<template name="registerTime">
+  <form class="register-time-form">
+    <div class="row">
+      <div class="input-field col s12 center">
+          <h4>Adicionar ponto</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <select name="type">
+          <option value="" disabled selected>Selecione o tipo</option>
+          <option value="Entrada 1">Entrada 1</option>
+          <option value="Saída 1">Saída 1</option>
+          <option value="Entrada 2">Entrada 2</option>
+          <option value="Saída 2">Saída 2</option>
+          <option value="Entrada 3">Entrada 3</option>
+          <option value="Saída 3">Saída 3</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <p class="red-text text-darken-1"></p>
+        <input type="text" class="timepicker" name="time" placeholder="Selecione o horário">
+      </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+          <p class="red-text text-darken-1"></p>
+          <input type="text" class="datepicker" name="date" placeholder="Selecione a data">
+        </div>
+      </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <p class="red-text text-darken-1"></p>
+        <input type="submit" class="btn waves-effect waves-light col s12" value="Registrar">
+      </div>
+      <div class="input-field col s12">
+        <input type="button" class="btn red waves-effect waves-light col s12 back-home" value="Cancelar">
+      </div>
+    </div>
+  </form>
+  <script>
+    $(document).ready(function(){
+      $('select').formSelect();
+      $('.timepicker').timepicker({
+        autoClose: true
+      });
+      $('.datepicker').datepicker({
+        format: 'dd/mm/yyyy',
+        defaultDate: new Date(),
+        setDefaultDate: true,
+        autoClose: true
+      });
+    });
+  </script>
+</template>
+
+<template name="sidebar">
+  <nav class="navbar">
+    <div class="nav-wrapper cyan">
+      <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+      <a href="#!" class="brand-logo center"><img src="images/logo.png" class="responsive-img"></a>
+    </div>
+  </nav>
+
+  <ul id="slide-out" class="sidenav">
+    <li><div class="user-view row">
+      <div class="background cyan"></div>
+        <a href="#user">
+          <div class="circle white center">
+            <i class="material-icons medium">person</i>
+          </div>
+        </a>
+        <a href="#name"><span class="white-text name">{{currentUser.username}}</span></a>
+        <a href="#email"><span class="white-text email"></span></a>
+      </div>
+    </li>
+    <li><a href="#!">Ver perfil</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="waves-effect logout" href="javascript:void(0)">Log out</a></li>
+  </ul>
+  
+  <script>
+    $(document).ready(function(){
+      $('.sidenav').sidenav();
+    });
+  </script>
+</template>

@@ -1,0 +1,44 @@
+/* Login e register */
+.bg-login {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login-form, .register-form {
+  width: 280px;
+}
+.login-form .margin, .register-form .margin {
+  margin: 0;
+}
+.login-form .input-field .prefix, .register-form .input-field .prefix {
+  position: absolute;
+  width: 3rem;
+  font-size: 2rem;
+  -webkit-transition: color 0.2s;
+  -moz-transition: color 0.2s;
+  -o-transition: color 0.2s;
+  -ms-transition: color 0.2s;
+  transition: color 0.2s;
+}
+
+/* Sidebar */
+.navbar .brand-logo {
+  width: 4rem;
+}
+
+/* Home page */
+.home-page .register-time {
+  margin: 3rem 0;
+}
+
+.home-page .collection .collection-item {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 3rem;
+  align-items: center;
+}
+
+/*#684ede*/
