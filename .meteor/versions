@@ -33,7 +33,6 @@ ejson@1.1.0
 email@1.2.3
 es5-shim@4.8.0
 fetch@0.1.1
-fourseven:scss@4.5.4
 geojson-utils@1.0.10
 hot-code-push@1.0.4
 html-tools@1.0.11
@@ -50,12 +49,12 @@ iron:middleware-stack@1.1.0
 iron:router@1.1.2
 iron:url@1.1.0
 jquery@1.11.11
+keanghok:framework7@1.0.4
 launch-screen@1.1.1
 less@2.8.0
 livedata@1.0.18
 localstorage@1.2.0
 logging@1.1.20
-materialize:materialize@0.100.2
 meteor@1.9.3
 meteor-base@1.4.0
 minifier-css@1.4.2
